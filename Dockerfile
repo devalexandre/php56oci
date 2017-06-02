@@ -4,6 +4,9 @@ WORKDIR '/var/www'
 RUN yum clean all
 RUN yum update -y 
 RUN yum install -y unzip 
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+RUN php composer-setup.php
+RUN mv composer.phar /usr/local/bin/composer
 # -----------------------------------------------------------------------------
 # Set ports
 # -----------------------------------------------------------------------------

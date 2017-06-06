@@ -7,6 +7,7 @@ RUN yum install -y unzip
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 RUN php composer-setup.php
 RUN mv composer.phar /usr/local/bin/composer
+RUN sed -i 's/index.html/index.html index.php/g' /etc/httpd/conf/httpd.conf
 # -----------------------------------------------------------------------------
 # Set ports
 # -----------------------------------------------------------------------------
